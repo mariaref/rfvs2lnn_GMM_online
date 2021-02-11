@@ -34,14 +34,14 @@ def main(args):
     
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)    
-    
-    (alpha,var,rho,NUM_GAUSSIANS,lr,K) = (args.alpha,args.var,args.rho,args.NG, args.lr,args.K)
+    K=1; both = False;
+    (alpha,var,rho,NUM_GAUSSIANS,lr) = (args.alpha,args.var,args.rho,args.NG, args.lr)
     (NUM_TESTS,steps,Nsamples)=(args.NT,args.steps,args.NS)
     D=args.D
     N=alpha*D
     comment=args.comment
     comment+="_var%g"%args.var
-    comment+="regime%d_"%args.regime
+    comment+="_regime%d"%args.regime
     if args.Three==1:
         comment+="3CLUST_"
         if args.regime==1:
@@ -61,6 +61,7 @@ def main(args):
             mus[0,0,0]=math.sqrt(D)
             mus[0,1,0]=-1
             mus*=math.sqrt(D)
+        else: mus = None
     elif args.Three==0:
         if args.regime==1:
             mus=get_means(N=D,NUM_GAUSSIANS=NUM_GAUSSIANS,length=1.)
@@ -78,6 +79,7 @@ def main(args):
             mus[1,1,0]=-math.sqrt(D)
             mus[1,1,1]=math.sqrt(1) 
             mus*=math.sqrt(D)
+        else: mus = None
         
     model=Model_iid(N=D,var=var,rho=rho,NUM_GAUSSIANS=NUM_GAUSSIANS,rand_MEANS=False,mus=mus)
    
@@ -91,7 +93,7 @@ def main(args):
     dstep=1./float(args.D) ## very important --> the ODES need to be run with 1/sqrt(D)!!
     
     comment=comment+"_Prandn"
-    K=K;both=args.both;quiet=args.quiet;
+    quiet=args.quiet;
     
     student=Student(K,D*args.alpha,act_function=args.g,w=None,v=None,bias=(args.bias==1))
     comment+="_init%g"%args.init
@@ -128,7 +130,7 @@ if __name__ == '__main__':
                   help='number of inputs')
   parser.add_argument('-NG', '--NG', metavar='NG', type=int, default=1,
                   help="Number of Gaussians per cluster")
-  parser.add_argument('-K', '--K', metavar='K', type=int, default=2,
+  parser.add_argument('-K', '--K', metavar='K', type=int, default=1,
                       help="size of the student's intermediate layer")
   parser.add_argument("--lr", type=float, default=.5,
                       help="learning constant")

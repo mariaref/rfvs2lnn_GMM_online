@@ -267,8 +267,8 @@ if __name__ == '__main__':
                         help="Relative size of the cluaters. Default=0.5")
     parser.add_argument("-var", "--var", type=float, default=0.01,
                         help="Variance within each cluster. Default=0.01")
-    parser.add_argument("-location", "--location", type=str, default="data/",
-                        help="Where to save the data. Default=data/.")
+    parser.add_argument("-location", "--location", type=str, default="..",
+                        help="Where to save the data. Default=..")
     parser.add_argument("-reg", "--reg", type=float, default=0.0,
                         help="Regularisation parameter. Default=0.0.")
     parser.add_argument("-prefix", "--prefix", type=str, default=None,

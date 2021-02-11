@@ -157,7 +157,7 @@ if __name__ == '__main__':
                       help="Informed initialisation in the XOR model. Default 0")
   parser.add_argument('-Three', '--Three', type=int , default=0,
                       help="Use 3 clusters model. Default 0")
-  parser.add_argument('-regime', '--regime', type=int , default=0,
+  parser.add_argument('-regime', '--regime', type=int , default=1,
                       help="snr regime in which to run training: (1) low snr (2) high snr (3) mixed snr")
   parser.add_argument('-bias','--bias', type=int , help="train with a bias", default=0)
   parser.add_argument('-print_OP','--print_OP', type=int , default=0)
