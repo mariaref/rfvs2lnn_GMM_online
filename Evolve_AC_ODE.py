@@ -48,7 +48,6 @@ def evolve(model,student,steps,lr,OP_SIMU,OP=None,reg=0,Nsamples=int(10**4),loca
     
     if OP is None:
         OP={"R":[],"M":[],"Q":[],"v":[],"step":[]}
-    
     num=Integrals_GM(Nsamples=Nsamples,gname=student.gname, dim= K + NUM_GAUSSIANS*2)
     lplus=np.stack(  ( np.ones(NUM_GAUSSIANS),rho*np.ones(NUM_GAUSSIANS),1./len(model.mus[0])*np.ones(NUM_GAUSSIANS))   ,axis=-1)
     lminus=np.stack(  (-1*np.ones(NUM_GAUSSIANS),(1-rho)*np.ones(NUM_GAUSSIANS),1./len(model.mus[1])*np.ones(NUM_GAUSSIANS) )  ,axis=-1)

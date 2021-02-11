@@ -103,7 +103,7 @@ def train(model,student,reg=0.0,Nsamples=int(10**4),NUM_TESTS=int(1e5),bs=1,lr=0
                     lplus=np.stack(  ( np.ones(NUM_GAUSSIANS),rho*np.ones(NUM_GAUSSIANS),1./len(model.mus[0])*np.ones(NUM_GAUSSIANS))   ,axis=-1)
                     lminus=np.stack(  (-1*np.ones(NUM_GAUSSIANS),(1-rho)*np.ones(NUM_GAUSSIANS),1./len(model.mus[1])*np.ones(NUM_GAUSSIANS) )  ,axis=-1)
                     label=np.concatenate((lminus,lplus), axis=0)
-                    num=Integrals_GM(Nsamples=Nsamples)
+                    num=Integrals_GM(Nsamples=Nsamples,gname=student.gname,  dim= student.K + model.NUM_GAUSSIANS*2)
                     #X , C, mu =Generate_MC_Set(model,K,NUM_GAUSSIANS,R,M,Q,T,MT,num)
                     Update_MC_Set(model,K,NUM_GAUSSIANS,R,M,Q,T,MT,num,X , C, mu)
                     v=student.fc2.weight.data[0].numpy()

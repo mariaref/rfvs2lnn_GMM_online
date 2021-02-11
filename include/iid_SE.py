@@ -97,7 +97,7 @@ def iterate_se(model,K,max_iter=int(1e10), time_max=None,eps=1e-10,
     lminus=np.stack(  (-1*np.ones(NUM_GAUSSIANS),(1-rho)*np.ones(NUM_GAUSSIANS),1./len(model.mus[1])*np.ones(NUM_GAUSSIANS) )  ,axis=-1)
     label=np.concatenate((lminus,lplus), axis=0) 
 
-    num=Integrals_GM(Nsamples=Nsamples,gname=gname,dim=model.N)
+    num=Integrals_GM(Nsamples=Nsamples,gname=gname,dim= student.K + model.NUM_GAUSSIANS*2)
     ## MC set initially 0 
     X=np.zeros((2*NUM_GAUSSIANS,Nsamples,K+2*NUM_GAUSSIANS))
     C=np.zeros((2*NUM_GAUSSIANS,K+2*NUM_GAUSSIANS,K+2*NUM_GAUSSIANS))
