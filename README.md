@@ -3,6 +3,9 @@
 This package provides utilities to simulate learning in fully connected
 two-layer neural networks (2LNN) and random features (RF) trained in the limit of one-pass/online SGD on inputs sampled from a mixture of Gaussian.
 It further provides the code to obtain the analytical curves and assymptotic performances of both networks.
+For the 2LNN, one can obtain dynamical plots to visualise the weights evolution like:
+
+![](weights_evolution.gif)
 
 ## Stucture
 
