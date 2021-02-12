@@ -4,6 +4,9 @@ This package provides utilities to simulate learning in fully connected
 two-layer neural networks (2LNN) and random features (RF) trained in the limit of one-pass/online SGD on inputs sampled from a mixture of Gaussian.
 It further provides the code to obtain the analytical curves and assymptotic performances of both networks.
 
+
+![](data_folder/weights_evolution.gif)
+
 ## Stucture
 
 The data distribution is implemented using a class ```Model``` (see  ```include/GMM_Model.py ```).
@@ -97,7 +100,3 @@ python3 RF_analytical_error.py --D 800 --alpha 20 --regime 1 --sigma 10.0 --erro
 
 * python 3
 * pytorch and other common python packages
-
-## Plot Example
-
-![](data_folder/weights_evolution.gif)
