@@ -100,4 +100,4 @@ python3 RF_analytical_error.py --D 800 --alpha 20 --regime 1 --sigma 10.0 --erro
 
 ## Plot Example
 
-![](data_folder/weights_evolution.gif){width = "2px"}
+![](data_folder/weights_evolution.gif)
