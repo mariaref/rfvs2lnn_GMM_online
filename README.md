@@ -5,7 +5,7 @@ two-layer neural networks (2LNN) and random features (RF) trained in the limit o
 It further provides the code to obtain the analytical curves and assymptotic performances of both networks.
 For the 2LNN, one can obtain dynamical plots to visualise the weights evolution like:
 
-![](data_folder/weights_evolution.gif=100x100)
+![](data_folder/weights_evolution.gif)
 
 ## Stucture
 
