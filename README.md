@@ -42,8 +42,8 @@ Many of the integrals appearing in the equations cannot be performed analyticall
 The class responsible for these integrations is the ```Integrator.py``` (see ```include/Integrals_RELU.py ```).
 It must be initialised via specification of:
 
-* ```act_function``` :  defining the activation function of the 2LNN\\
-* ```Nsamples```     :  batchsize to perform integration (10000 samples is sufficient for precise evaluation)\\
+* ```act_function``` :  defining the activation function of the 2LNN
+* ```Nsamples```     :  batchsize to perform integration (10000 samples is sufficient for precise evaluation)
 * ```dim```          :  dimensions of the MC samples (=K + number Gaussian clusters in the case of the 2LNNs) 
 
 Each time an ```Integrator``` is defined, it generates ```integrator.Nsamples``` i.i.d. random variables in  integrator.dim dimensions and stores them in ```integrator.vec```.
